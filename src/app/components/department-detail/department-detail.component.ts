@@ -33,4 +33,11 @@ export class DepartmentDetailComponent implements OnInit {
     let nextId = this.departmentId + 1;
     this.router.navigate(['departments', nextId]);
   }
+
+  goToDepartments() {
+    // null check. for what exactly?
+    // let selectedID = this.departmentId ? this.departmentId : null;
+    let selectedID = this.departmentId;
+    this.router.navigate(['departments', {id: selectedID}]);
+  }
 }
