@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-department-detail',
@@ -12,12 +12,16 @@ export class DepartmentDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
-  // component is reused by Angular, not initiated
-  // ngOnInit method does not get called
-  // so id won't be retrieved from url
   ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.departmentId = id;
+    // with snapshot, the parameter would only be accessed once, when the component loads. Hence, it won't be updated, even if you change its value from within the same component.
+    // let id = parseInt(this.route.snapshot.paramMap.get('id'));
+    // this.departmentId = id;
+
+    // If you intend to update the URL parameter within the same component, then you have to use a subscription.
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      let id = parseInt(params.get('id'));
+      this.departmentId = id;
+    });
   }
 
   goPrevious() {
