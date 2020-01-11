@@ -13,7 +13,7 @@ export class DepartmentListComponent implements OnInit {
 
   departments = [
     {id: 1, name: "Angular"},
-    {id: 2, name: "Node"},
+    {id: 2, name: "Node"}, 
     {id: 3, name: "MongoDB"},
     {id: 4, name: "Roby"},
     {id: 5, name: "Bootstrap"},
