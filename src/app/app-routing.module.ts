@@ -9,9 +9,7 @@ import { DepartmentDetailComponent } from './components/department-detail/depart
 const routes: Routes = [
   { path: '', redirectTo: 'departments', pathMatch: 'full'},
   { path: 'departments', component: DepartmentListComponent},
-  // new
   { path: 'departments/:id', component: DepartmentDetailComponent},
-
   { path: 'employees', component: EmployeeListComponent},
   { path: '**', component: PageNotFoundComponent}
 ];

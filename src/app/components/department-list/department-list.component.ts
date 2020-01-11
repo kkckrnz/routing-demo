@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { VirtualTimeScheduler } from 'rxjs'; // new
-import { Router } from '@angular/router'; // new
+import { VirtualTimeScheduler } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-department-list',
@@ -17,13 +17,11 @@ export class DepartmentListComponent implements OnInit {
     {id: 5, name: "Bootstrap"},
   ]
 
-  // new
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
-  // new
   onSelect(department) {
     this.router.navigate(['/departments', department.id]);
   }
